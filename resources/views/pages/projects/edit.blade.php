@@ -47,6 +47,17 @@
             <input type="text" class="form-control" id="software" name="software" placeholder="New title: max 4 words" value="{{old('software', $project->software)}}">
         </div>
 
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Type</label>
+            <select id="type_id" class="form-select @error('type_id') is_invalid @enderror">
+              <option value="">Choose...</option>
+              @foreach ($types as $type)
+                 <option value="{{ $type->id }}
+                    {{ $type->id == old('type_id', $project->type ? $project->type->id : '') ? 'selected' : '' }}">{{ $type->name }}</option>
+              @endforeach
+            </select>
+        </div>
+
         <button class="btn btn-primary " type="submit">Save changes</button>
     </form>
 @endsection

@@ -14,6 +14,7 @@
             <th scope="col">Image</th>
             <th scope="col" class="col-xs-1 col-md-3 col-lg-5 ">Description</th>
             <th scope="col">Software</th>
+            <th scope="col">Type</th>
             <th scope="col" class="col-lg-2">Actions</th>
           </tr>
         </thead>
@@ -30,6 +31,9 @@
                 <td>{{ $project->img }}</td>
                 <td>{{ $project->description }}</td>
                 <td>{{ $project->software }}</td>
+                <td>
+                  {{ $project->type_id }}
+                </td>
                 <td>
                     <a class="btn btn-primary mb-3" href="{{ route('dashboard.projects.edit', $project->id)}}">Edit project</a>
                     <form action="{{ route('dashboard.projects.destroy', $project->id)}}" method="post">
